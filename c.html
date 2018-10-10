@@ -1,0 +1,28 @@
+<input type="text" id="hehe"></input><input type="text" id="num"></input>
+<div id="result" style="font-family:monospace"></div>
+<script>
+function c(str, offset) {
+	return str.split('').map(chr=>cc(chr, isNaN(offset)?0:offset)).join('');
+};
+function cc(chr, offset) {
+	let charcode = chr.charCodeAt(0);
+	if (charcode >= 65 && charcode <= 90)
+		return z(wrapAround(65, 90, charcode, offset));
+	else if (charcode >= 97 && charcode <= 122)
+		return z(wrapAround(97, 122, charcode, offset));
+	return chr == ' ' ? chr : '';
+};
+function wrapAround(min,max,val,offset) {
+	let result = val + offset;
+	if (result < min)
+		result = max + 1 - (min - result);
+	else if (result > max) 
+		result = min - 1 + (result - max);
+	return result;
+};
+function a() {
+_("result").innerText = "" + c(_("hehe").value, 0) + "\n" + c(_("hehe").value, parseInt(_("num").value))
+}
+$=document;_=s=>$.getElementById(s);z=String.fromCharCode;
+$.addEventListener("DOMContentLoaded", function(){_("hehe").addEventListener("input", a);_("num").addEventListener("input",a)})
+</script>
