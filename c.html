@@ -1,5 +1,6 @@
-<input type="text" id="hehe"></input><input type="text" id="num"></input>
-<div id="result" style="font-family:monospace"></div>
+Text<input type="text" id="hehe"></input><br>
+Offset<input type="number" id="num"></input>
+<div id="result" style="font-family:monospace;font-size:3vw"></div>
 <script>
 function c(str, offset) {
 	return str.split('').map(chr=>cc(chr, isNaN(offset)?0:offset)).join('');
